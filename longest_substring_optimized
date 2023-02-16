@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    int left=0;
+    int right=0;
+    int res=0;
+    unordered_map<char,int> map;
+    int n=s.length();
+
+    while(right<n)
+    {
+        char a=s[right];
+        if(map[a])
+        {
+            left=map[a]+1;
+        }
+        map[a]=right;
+
+         res=max(res,right-left+1);
+         right++;
+    }
+    cout<<res;
+
+}
